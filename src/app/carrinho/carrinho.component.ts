@@ -14,7 +14,7 @@ import { DataService } from '../data.service';
 export class CarrinhoComponent implements OnInit {
 
   productList:Product[]
-  carrinhoVazio:boolean = true
+  emptyCart:boolean = true
   @Output() customerEmit = new EventEmitter<Product[]>()
 
   constructor(private dataService:DataService) { }
@@ -23,7 +23,7 @@ export class CarrinhoComponent implements OnInit {
     this.dataService.getProduct()
     this.productList = this.dataService.getCart();
     if(this.productList.length != 0){
-      this.carrinhoVazio=false
+      this.emptyCart=false
     }
   }
 
