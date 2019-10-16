@@ -3,26 +3,26 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { ProductComponent } from './product/product.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavigationModule } from './navigation/navigation.module';
+import { ProductModule } from './product/product.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    CarrinhoComponent,
-    ProductComponent,
-    ProductListComponent,
-    HomeComponent
+    HomeComponent,
+    CarrinhoComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NavigationModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]
