@@ -1,8 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Injectable } from '@angular/core';
-import { Product } from '../model/product.model';
+import { Product } from '../../model/product.model';
 import { Observable } from 'rxjs';
-import { DataService } from '../service/data.service';
-
+import { DataService } from '../../service/data.service';
 
 @Component({
   selector: 'app-carrinho',
@@ -13,22 +12,20 @@ import { DataService } from '../service/data.service';
 @Injectable() 
 export class CarrinhoComponent implements OnInit {
 
-  productList:Product[]
+  productList:Product[] = []
   emptyCart:boolean = true
-  @Output() customerEmit = new EventEmitter<Product[]>()
 
   constructor(private dataService:DataService) { }
 
   ngOnInit() {
     this.dataService.getProduct()
-    this.productList = this.dataService.getCart();
-    if(this.productList.length != 0){
-      this.emptyCart=false
-    }
+    this.productList = this.dataService.getCart()
+    this.emptyCart = this.productList.length == 0
   }
 
   retirarDoCarrinho(product){
-    this.dataService.retirarDoCarrinho(product);
+    this.dataService.retirarDoCarrinho(product)
+    this.emptyCart = this.productList.length == 0
   }
 
 }

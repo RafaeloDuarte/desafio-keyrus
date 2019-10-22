@@ -10,7 +10,13 @@
         <div class="card-action">
           <a *ngIf='product.stock.stockLevelStatus==="inStock"' href="#">Add Cart</a>
           <a routerLink="/">Voltar</a>
-        </div>
+        </div>        
+          <select class="browser-default">
+            <option value="" disabled selected>select quantity</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
       </div>
     </div>
 </div>

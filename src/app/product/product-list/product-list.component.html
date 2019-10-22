@@ -9,6 +9,11 @@
         </div>
         <div class="card-action">
           <a *ngIf='product.stock.stockLevelStatus==="inStock"' (click)="adicionarAoCarrinho(product)">Add Cart</a>
+          <select *ngIf='product.stock.stockLevelStatus==="inStock"'>
+              <option value="1"></option>
+              <option value="2"></option>
+              <option value="3"></option>
+          </select>
           <a (click)="irParaProduto(product)">Details</a>
         </div>
       </div>
